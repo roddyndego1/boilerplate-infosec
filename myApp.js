@@ -1,6 +1,11 @@
 const express = require('express');
 const app = express();
 const helmet = require('helmet');
+const bcrypt = require('bcrypt');
+
+const password = "mySecret123";
+const saltRounds = 10;
+
 
 app.use(
   helmet.contentSecurityPolicy({
