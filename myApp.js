@@ -1,8 +1,16 @@
 const express = require('express');
 const app = express();
 const helmet = require('helmet');
+const bcrypt = require('bcrypt');
 
-app.use(helmet.noSniff());
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", 'trusted-cdn.com']
+    }
+  })
+);
 
 
 
